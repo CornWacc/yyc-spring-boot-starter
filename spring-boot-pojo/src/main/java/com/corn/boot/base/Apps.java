@@ -28,7 +28,6 @@ public class Apps {
     public static void setServerPort(String port){
         if(!StringUtils.isNotBlank(System.getProperty(SERVER_PORT))){
             System.setProperty(SERVER_PORT,port);
-            System.out.println(System.getProperty(SERVER_PORT));
         }
     }
 }
