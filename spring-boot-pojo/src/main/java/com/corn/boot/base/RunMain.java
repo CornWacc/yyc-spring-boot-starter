@@ -27,7 +27,7 @@ public class RunMain implements RunDao{
             Apps.setSpringProfileActive(runner.active());
             SpringApplication.run(classz,args);
             long endTime = System.currentTimeMillis();
-            log.info("********** 项目启动成功:{},耗时:{},端口号:{} **********", System.getProperty("os.name"), endTime - startTime,runner.port());
+            log.info("********** 项目启动成功:{},耗时:{},端口号:{},配置:{} **********", System.getProperty("os.name"), endTime - startTime,runner.port(),runner.active());
         }catch (Exception e){
             System.out.println("启动错误");
         }

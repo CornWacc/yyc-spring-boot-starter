@@ -22,6 +22,7 @@ public class Apps {
     public static void setSpringProfileActive(String active){
         if(!StringUtils.isNotBlank(System.getProperty(SPRING_PROFILE_ACTIVE))){
             System.setProperty(SPRING_PROFILE_ACTIVE,active);
+            System.out.println(active);
         }
     }
 

@@ -3,18 +3,16 @@ package com.corn.boot.base;
 
 import com.corn.boot.enums.Status;
 
-import java.io.Serializable;
-
-public class BaseResult extends Base implements Serializable {
+public class BaseRes extends Base  {
     private static final long serialVersionUID = 7964440651025911165L;
     /**
      * 结果状态
      */
-    protected Status status;
+    private Status status;
     /**
      * 描述
      */
-    protected String message;
+    private String message;
 
     /**
      * 错误码

@@ -11,7 +11,7 @@ import org.springframework.transaction.support.TransactionTemplate;
  * 事物实现保证类
  * */
 
-public abstract class AbstractBizService<O extends BaseOrder, R extends BaseResult> {
+public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes> {
     private final Logger logger = LoggerFactory.getLogger(AbstractBizService.class);
     @Autowired
     protected TransactionTemplate transactionTemplate;
@@ -22,7 +22,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseResu
 
         logger.info("收到业务[{}]处理请求，请求参数：{}", bieMemo, order);
         //1.初始化result
-        R result = (R) new BaseResult();
+        R result = initResult();
         try {
             //2.设置默认应答
             setDefaultResult(result);
@@ -30,6 +30,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseResu
             orderCheck(order);
             //4.执行业务逻辑
             doAppBiz(order, result);
+
 
         } catch (IllegalArgumentException ie) {
             //参数校验错误(未知)
