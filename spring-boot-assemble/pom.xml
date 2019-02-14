@@ -11,6 +11,14 @@
 
     <packaging>jar</packaging>
     <artifactId>yyc-spring-boot-starter-assemble</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.corn.base</groupId>
+            <artifactId>yyc-spring-boot-starter-pojo</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>

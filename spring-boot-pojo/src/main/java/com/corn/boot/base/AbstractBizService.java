@@ -17,9 +17,6 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
     protected TransactionTemplate transactionTemplate;
 
     public final R execute(String bieMemo, O order) {
-
-
-
         logger.info("收到业务[{}]处理请求，请求参数：{}", bieMemo, order);
         //1.初始化result
         R result = initResult();
