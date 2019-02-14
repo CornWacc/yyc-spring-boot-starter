@@ -11,7 +11,6 @@ import java.lang.annotation.*;
 @Documented
 @Inherited
 @SpringBootApplication
-@ImportResource(locations = "classpath:dubbo-admin.xml")
 public @interface Runner {
 
     String port() default "8080";
