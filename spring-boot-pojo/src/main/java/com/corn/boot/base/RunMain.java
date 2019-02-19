@@ -13,12 +13,11 @@ import java.lang.annotation.Annotation;
  * @apiNote 主启动类
  * ps:1.为解决启动项目不用手动再去启动zk的问题
  */
-public class RunMain implements RunDao{
+public class RunMain{
 
     private static final Logger log = LoggerFactory.getLogger(RunMain.class);
 
-    @Override
-    public void springRun(Class classz , String... args){
+    public static void springRun(Class classz , String... args){
         long startTime = System.currentTimeMillis();
         try{
             Annotation annotation = classz.getAnnotation(Runner.class);
