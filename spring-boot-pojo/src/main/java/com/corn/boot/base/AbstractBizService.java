@@ -1,6 +1,7 @@
 package com.corn.boot.base;
 
 import com.corn.boot.enums.Status;
+import com.corn.boot.error.BizError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;

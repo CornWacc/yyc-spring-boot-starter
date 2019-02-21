@@ -1,4 +1,4 @@
-package com.corn.boot.base;
+package com.corn.boot.error;
 
 /**
  * 异常处理类

@@ -1,7 +1,7 @@
 package com.corn.boot.util;
 
 
-import com.corn.boot.base.BizError;
+import com.corn.boot.error.BizError;
 
 import javax.mail.Message;
 import javax.mail.Session;

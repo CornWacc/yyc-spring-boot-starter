@@ -1,5 +1,6 @@
 package com.corn.boot.base;
 
+import com.corn.boot.error.BizError;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;

@@ -1,11 +1,10 @@
 package com.corn.boot.util;
 
-import com.corn.boot.base.BizError;
+import com.corn.boot.error.BizError;
 import sun.misc.BASE64Encoder;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
