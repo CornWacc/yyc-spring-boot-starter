@@ -17,4 +17,9 @@ public @interface Runner {
     String port() default "8080";
 
     String active() default "dev";
+
+    /**
+     * 这是扫描mapping的路径
+     * */
+    String mappingPath() default "/mapping/**.xml";
 }
