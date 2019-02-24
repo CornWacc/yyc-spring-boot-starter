@@ -64,6 +64,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
         return result;
     }
 
+
     /**
      * 实例化result对象
      *
@@ -71,7 +72,10 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
      */
     protected abstract R initResult();
 
-
+    /**
+     * 参数校验
+     * */
+    protected abstract void orderCheck(O order);
 
     /**
      * 设置默认应答
@@ -95,8 +99,5 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
      */
     protected abstract void appBiz(O order, R result);
 
-    /**
-     * 参数校验
-     * */
-    protected abstract void orderCheck(O order);
+
 }

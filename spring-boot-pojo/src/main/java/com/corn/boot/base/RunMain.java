@@ -2,11 +2,10 @@ package com.corn.boot.base;
 
 
 import com.corn.boot.annotations.Runner;
-import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.lang.annotation.Annotation;
 
@@ -18,6 +17,7 @@ import java.lang.annotation.Annotation;
 public class RunMain{
 
     private static final Logger log = LoggerFactory.getLogger(RunMain.class);
+
 
     public static void springRun(Class classz , String... args){
         long startTime = System.currentTimeMillis();

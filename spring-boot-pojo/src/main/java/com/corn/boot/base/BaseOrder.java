@@ -16,8 +16,6 @@ public class BaseOrder  extends Base implements Serializable {
     private String serialNo;
 
 
-
-
     public String getSerialNo() {
         return serialNo;
     }
