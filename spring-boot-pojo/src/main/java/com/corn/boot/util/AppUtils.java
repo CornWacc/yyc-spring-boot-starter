@@ -60,7 +60,7 @@ public class AppUtils {
     /**
      * 生成对应id
      * */
-    public static String blogIdCreate(String name){
+    public static String correspondingCreate(String name){
         StringBuilder builder = new StringBuilder();
         builder.append(name);
         for(int i = 0 ; i < 12 ; i++){
