@@ -31,6 +31,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
 
 
         } catch (IllegalArgumentException ie) {
+            ie.printStackTrace();
             //参数校验错误(未知)
             logger.error("参数类型异常[订单：{}，msgError：{}]", order, ie.getMessage());
             result.setStatus(Status.FAIL);

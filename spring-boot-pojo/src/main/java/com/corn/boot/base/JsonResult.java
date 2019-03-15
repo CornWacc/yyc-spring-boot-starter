@@ -12,6 +12,14 @@ public class JsonResult extends Base{
 
     private int code;
 
+    public JsonResult(int code){
+        this.code = code;
+    }
+
+    public JsonResult(String msg){
+        this.msg = msg;
+    }
+
     public JsonResult(Object object){
         this.object = object;
     }
@@ -23,6 +31,11 @@ public class JsonResult extends Base{
 
     public JsonResult(Object object,String msg,int code){
         this.object = object;
+        this.msg = msg;
+        this.code = code;
+    }
+
+    public JsonResult(String msg,int code){
         this.msg = msg;
         this.code = code;
     }
