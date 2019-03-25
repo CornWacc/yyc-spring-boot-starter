@@ -14,22 +14,22 @@ import java.lang.reflect.Method;
 /**
  * @author yyc
  * @apiNote 基础接口层
- * */
+ */
 public class BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(BaseController.class);
 
-    protected String getRequestUrlName(String methodName){
+    protected String getRequestUrlName(String methodName) {
         Method[] methods = getClass().getMethods();
         String resMethod = null;
-        for(Method method : methods){
-            if(method.getName().equals(methodName)){
+        for (Method method : methods) {
+            if (method.getName().equals(methodName)) {
                 Annotation[] annotations = method.getAnnotations();
-                for(Annotation annotation : annotations){
-                    if(annotation instanceof PostMapping){
+                for (Annotation annotation : annotations) {
+                    if (annotation instanceof PostMapping) {
                         PostMapping postMapping = (PostMapping) annotation;
                         resMethod = postMapping.value()[0];
-                    }else if(annotation instanceof GetMapping){
+                    } else if (annotation instanceof GetMapping) {
                         GetMapping getMapping = (GetMapping) annotation;
                         resMethod = getMapping.value()[0];
                     }

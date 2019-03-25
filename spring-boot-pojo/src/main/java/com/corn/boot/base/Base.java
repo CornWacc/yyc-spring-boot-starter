@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * @author yyc
  * @apiNote 最高基础类
- * */
+ */
 public class Base implements Serializable {
     private static final long serialVersionUID = 2444373807715029452L;
 

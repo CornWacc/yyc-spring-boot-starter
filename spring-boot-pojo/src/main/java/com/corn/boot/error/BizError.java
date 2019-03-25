@@ -2,7 +2,7 @@ package com.corn.boot.error;
 
 /**
  * 异常处理类
- * */
+ */
 public class BizError extends RuntimeException {
     private static final long serialVersionUID = 2492449662231853945L;
 

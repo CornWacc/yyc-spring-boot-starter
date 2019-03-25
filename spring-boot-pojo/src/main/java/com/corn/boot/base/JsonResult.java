@@ -3,8 +3,8 @@ package com.corn.boot.base;
 /**
  * @author yyc
  * @apiNote 通用返回json类
- * */
-public class JsonResult extends Base{
+ */
+public class JsonResult extends Base {
 
     private Object object;
 
@@ -12,30 +12,30 @@ public class JsonResult extends Base{
 
     private int code;
 
-    public JsonResult(int code){
+    public JsonResult(int code) {
         this.code = code;
     }
 
-    public JsonResult(String msg){
+    public JsonResult(String msg) {
         this.msg = msg;
     }
 
-    public JsonResult(Object object){
+    public JsonResult(Object object) {
         this.object = object;
     }
 
-    public JsonResult(Object object,String msg){
+    public JsonResult(Object object, String msg) {
         this.object = object;
         this.msg = msg;
     }
 
-    public JsonResult(Object object,String msg,int code){
+    public JsonResult(Object object, String msg, int code) {
         this.object = object;
         this.msg = msg;
         this.code = code;
     }
 
-    public JsonResult(String msg,int code){
+    public JsonResult(String msg, int code) {
         this.msg = msg;
         this.code = code;
     }

@@ -10,7 +10,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 /**
  * 事物实现保证类
- * */
+ */
 
 public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes> {
     private final Logger logger = LoggerFactory.getLogger(AbstractBizService.class);
@@ -60,7 +60,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
             MDC.clear();
         }
 
-        logger.info("业务[{}]处理结束，返回参数：result={}",result.toString());
+        logger.info("业务[{}]处理结束，返回参数：result={}", result.toString());
 
         return result;
     }
@@ -75,7 +75,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
 
     /**
      * 参数校验
-     * */
+     */
     protected abstract void orderCheck(O order);
 
     /**
@@ -87,8 +87,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
     }
 
 
-
-    private void doAppBiz(O order , R result){
+    private void doAppBiz(O order, R result) {
         appBiz(order, result);
     }
 

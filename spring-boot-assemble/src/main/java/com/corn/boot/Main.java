@@ -16,6 +16,7 @@ public class Main extends SpringBootServletInitializer {
     public static void main(String[] args) {
         new RunMain().springRun(Main.class);
     }
+
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(this.getClass());

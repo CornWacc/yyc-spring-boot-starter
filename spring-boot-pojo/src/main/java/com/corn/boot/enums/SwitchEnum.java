@@ -4,11 +4,11 @@ package com.corn.boot.enums;
 /**
  * @author yyc
  * @apiNote 开关枚举
- * */
-public enum  SwitchEnum {
+ */
+public enum SwitchEnum {
 
-    OPEN("OPEN","开"),
-    CLOSE("CLOSE","关");
+    OPEN("OPEN", "开"),
+    CLOSE("CLOSE", "关");
 
     private final String code;
 

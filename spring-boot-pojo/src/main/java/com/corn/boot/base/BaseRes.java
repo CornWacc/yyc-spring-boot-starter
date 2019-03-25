@@ -3,7 +3,7 @@ package com.corn.boot.base;
 
 import com.corn.boot.enums.Status;
 
-public class BaseRes extends Base  {
+public class BaseRes extends Base {
     private static final long serialVersionUID = 7964440651025911165L;
     /**
      * 结果状态

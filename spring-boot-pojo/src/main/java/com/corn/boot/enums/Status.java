@@ -1,24 +1,35 @@
 package com.corn.boot.enums;
 
 public enum Status {
-    /** 成功 */
+    /**
+     * 成功
+     */
     SUCCESS("success", "成功"),
 
-    /** 失败 */
+    /**
+     * 失败
+     */
     FAIL("fail", "失败"),
 
-    /** 处理中 */
+    /**
+     * 处理中
+     */
     PROCESSING("processing", "处理中");
 
-    /** 枚举值码 */
+    /**
+     * 枚举值码
+     */
     private final String code;
 
-    /** 枚举描述 */
+    /**
+     * 枚举描述
+     */
     private final String message;
 
     /**
      * 构建一个 Status 。
-     * @param code 枚举值码。
+     *
+     * @param code    枚举值码。
      * @param message 枚举描述。
      */
     private Status(String code, String message) {
@@ -28,6 +39,7 @@ public enum Status {
 
     /**
      * 得到枚举值码。
+     *
      * @return 枚举值码。
      */
     public String code() {
@@ -36,6 +48,7 @@ public enum Status {
 
     /**
      * 得到枚举描述。
+     *
      * @return 枚举描述。
      */
     public String message() {
@@ -44,6 +57,7 @@ public enum Status {
 
     /**
      * 通过枚举值码查找枚举值。
+     *
      * @param code 查找枚举值的枚举值码。
      * @return 枚举值码对应的枚举值。
      * @throws IllegalArgumentException 如果 code 没有对应的 Status 。

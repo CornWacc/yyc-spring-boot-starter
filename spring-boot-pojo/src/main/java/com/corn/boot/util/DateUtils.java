@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * @author yyc
  * @apiNote 通用时间类
- * */
+ */
 public class DateUtils {
 
     private static final String DATE_HH = "yyyy-MM-dd HH:mm:ss";
@@ -15,19 +15,19 @@ public class DateUtils {
 
     private static final String DATE_CONNECT = "yyyyMMddHHmmss";
 
-    public static String dateForMateForHH(Date date){
+    public static String dateForMateForHH(Date date) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_HH);
         String time = simpleDateFormat.format(date);
         return time;
     }
 
-    public static String dateForMateForhh(Date date){
+    public static String dateForMateForhh(Date date) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_hh);
         String time = simpleDateFormat.format(date);
         return time;
     }
 
-    public static String dateForMateForConnect(Date date){
+    public static String dateForMateForConnect(Date date) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_CONNECT);
         String time = simpleDateFormat.format(date);
         return time;
