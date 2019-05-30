@@ -14,12 +14,12 @@ public class PageOrder extends BaseOrder {
     /**
      * 每页展示页数
      */
-    private Integer pageSize;
+    private Integer pageSize = 10;
 
     /**
      * 页码
      */
-    private Integer pageNum;
+    private Integer pageNum = 1;
 
     /**
      * 关键字
