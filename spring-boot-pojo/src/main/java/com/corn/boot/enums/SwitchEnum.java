@@ -7,8 +7,8 @@ package com.corn.boot.enums;
  */
 public enum SwitchEnum {
 
-    OPEN("OPEN", "开"),
-    CLOSE("CLOSE", "关");
+    OPEN("OPEN", "开启"),
+    CLOSE("CLOSE", "关闭");
 
     private final String code;
 
