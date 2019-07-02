@@ -6,11 +6,17 @@ package com.corn.boot.base;
  */
 public class JsonResult extends Base {
 
+    private static final String SUCCESS_MSG = "SUCCESS";
+
+    private static final String FIAL_MSG = "FAIL";
+
     private Object object;
 
     private String msg;
 
     private int code;
+
+    private String status;
 
     public JsonResult(int code) {
         this.code = code;
@@ -38,6 +44,11 @@ public class JsonResult extends Base {
     public JsonResult(String msg, int code) {
         this.msg = msg;
         this.code = code;
+    }
+
+    public JsonResult(String status,String msg){
+        this.status = status;
+        this.msg = msg;
     }
 
     public Object getObject() {
