@@ -36,7 +36,7 @@ public class JsonResult extends Base {
         if(BaseRes.class.isAssignableFrom(object.getClass())){
             this.object = object;
             BaseRes res = (BaseRes) object;
-            this.status = res.getStatus().code();
+            this.status = res.getStatus().code().toUpperCase();
             this.msg = res.getMessage();
         }else{
             this.status = FIAL_MSG;
@@ -88,5 +88,13 @@ public class JsonResult extends Base {
 
     public void setCode(int code) {
         this.code = code;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
