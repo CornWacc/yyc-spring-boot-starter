@@ -6,9 +6,9 @@ package com.corn.boot.base;
  */
 public class JsonResult extends Base {
 
-    private static final String SUCCESS_MSG = "SUCCESS";
+    public static final String SUCCESS_MSG = "SUCCESS";
 
-    private static final String FIAL_MSG = "FAIL";
+    public static final String FIAL_MSG = "FAIL";
 
     private Object object;
 
