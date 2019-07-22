@@ -2,8 +2,6 @@ package com.corn.boot.annotations;
 
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.context.annotation.ImportResource;
 
 import java.lang.annotation.*;
 

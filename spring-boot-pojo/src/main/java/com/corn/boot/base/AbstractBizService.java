@@ -1,12 +1,16 @@
 package com.corn.boot.base;
 
+import com.corn.boot.annotations.DoTranscation;
 import com.corn.boot.enums.Status;
 import com.corn.boot.error.BizError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
+import org.springframework.util.ObjectUtils;
 
 /**
  * 事物实现保证类
@@ -14,6 +18,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes> {
     private final Logger logger = LoggerFactory.getLogger(AbstractBizService.class);
+
     @Autowired
     protected TransactionTemplate transactionTemplate;
 
@@ -27,7 +32,12 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
             //3.参数校验
             orderCheck(order);
             //4.执行业务逻辑
-            doAppBiz(order, result);
+            //业务预处理
+            if (checkTranscation()) {
+                bailBizInTranscation(order,result);
+            } else {
+                doAppBiz(order, result);
+            }
 
 
         } catch (IllegalArgumentException ie) {
@@ -99,5 +109,50 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
      */
     protected abstract void appBiz(O order, R result);
 
+    /**
+     * 带事务的方法执行
+     * */
+    private void bailBizInTranscation(O order,R result){
+
+        Biz biz = new Biz(order,result);
+        transactionTemplate.equals(biz);
+    }
+
+    /**
+     * 事务校验
+     */
+    private boolean checkTranscation() {
+        DoTranscation doTranscation = this.getClass().getAnnotation(DoTranscation.class);
+        if (!ObjectUtils.isEmpty(doTranscation)) {
+            logger.info("事务校验[已开启事务]");
+            return true;
+        } else {
+            logger.info("事务校验[已关闭事务]");
+            return false;
+        }
+    }
+
+    private class Biz implements TransactionCallback<Void> {
+
+        private O order;
+
+        private R result;
+
+        public Biz(O order, R result) {
+            this.order = order;
+            this.result = result;
+        }
+
+        @Override
+        public Void doInTransaction(TransactionStatus transactionStatus) {
+            try{
+                appBiz(order,result);
+            }catch (Exception e){
+                transactionStatus.setRollbackOnly();
+                throw e;
+            }
+            return null;
+        }
+    }
 
 }
