@@ -115,7 +115,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
     private void bailBizInTranscation(O order,R result){
 
         Biz biz = new Biz(order,result);
-        transactionTemplate.equals(biz);
+        transactionTemplate.execute(biz);
     }
 
     /**
