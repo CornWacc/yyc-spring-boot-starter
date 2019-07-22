@@ -11,15 +11,11 @@ public class PageOrder extends BaseOrder {
 
     private static final long serialVersionUID = -2427119332806095916L;
 
-    /**
-     * 每页展示页数
-     */
-    private Integer pageSize = 10;
 
     /**
-     * 页码
-     */
-    private Integer pageNum = 1;
+     * 分页实体
+     * */
+    private PageParamInfo pageParamInfo;
 
     /**
      * 关键字
@@ -60,19 +56,11 @@ public class PageOrder extends BaseOrder {
         this.endTime = endTime;
     }
 
-    public Integer getPageSize() {
-        return pageSize;
+    public PageParamInfo getPageParamInfo() {
+        return pageParamInfo;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public Integer getPageNum() {
-        return pageNum;
-    }
-
-    public void setPageNum(Integer pageNum) {
-        this.pageNum = pageNum;
+    public void setPageParamInfo(PageParamInfo pageParamInfo) {
+        this.pageParamInfo = pageParamInfo;
     }
 }
