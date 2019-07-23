@@ -4,17 +4,17 @@ public enum Status {
     /**
      * 成功
      */
-    SUCCESS("success", "成功"),
+    SUCCESS("SUCCESS", "成功"),
 
     /**
      * 失败
      */
-    FAIL("fail", "失败"),
+    FAIL("FAIL", "失败"),
 
     /**
      * 处理中
      */
-    PROCESSING("processing", "处理中");
+    PROCESSING("PROCESSING", "处理中");
 
     /**
      * 枚举值码
