@@ -1,5 +1,6 @@
 package com.corn.boot.base;
 
+import com.corn.boot.enums.Status;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,6 +39,11 @@ public class JsonResult extends Base {
             BaseRes res = (BaseRes) object;
             this.status = res.getStatus().code().toUpperCase();
             this.msg = res.getMessage();
+        }else if(object instanceof ImageCode){
+            this.object = object;
+            ImageCode imageCode = (ImageCode) object;
+            this.status = Status.SUCCESS.code();
+            this.msg = imageCode.getBase64Image();
         }else{
             this.status = FIAL_MSG;
             this.msg = "系统出错啦！！";
