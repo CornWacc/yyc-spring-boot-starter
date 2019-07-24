@@ -19,6 +19,10 @@ public class PageParamInfo extends Base {
      * */
     private Integer pageSize;
 
+    public PageParamInfo(){
+
+    }
+
     public PageParamInfo(Integer pageNum, Integer pageSize) {
         this.pageNum = pageNum;
         this.pageSize = pageSize;
