@@ -1,8 +1,6 @@
 package com.corn.boot.util;
 
 import com.corn.boot.error.BizError;
-import sun.misc.BASE64Encoder;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
@@ -51,8 +49,8 @@ public class AppUtils {
         try {
             MessageDigest md = MessageDigest.getInstance("md5");
             byte md5[] = md.digest(token.getBytes());
-            BASE64Encoder encoder = new BASE64Encoder();
-            return encoder.encode(md5);
+           // BASE64Encoder encoder = new BASE64Encoder();
+            return null;
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             throw new BizError("生成token失败");
