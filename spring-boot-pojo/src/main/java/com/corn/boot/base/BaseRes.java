@@ -1,14 +1,14 @@
 package com.corn.boot.base;
 
 
-import com.corn.boot.enums.Status;
+import com.corn.boot.enums.StatusEnum;
 
 public class BaseRes extends Base {
     private static final long serialVersionUID = 7964440651025911165L;
     /**
      * 结果状态
      */
-    private Status status;
+    private StatusEnum status;
     /**
      * 描述
      */
@@ -27,11 +27,11 @@ public class BaseRes extends Base {
         this.code = code;
     }
 
-    public Status getStatus() {
+    public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(StatusEnum status) {
         this.status = status;
     }
 
@@ -44,15 +44,15 @@ public class BaseRes extends Base {
     }
 
     public boolean isSuccess() {
-        return this.status == Status.SUCCESS;
+        return this.status == StatusEnum.SUCCESS;
     }
 
     public boolean isFail() {
-        return this.status == Status.FAIL;
+        return this.status == StatusEnum.FAIL;
     }
 
     public boolean isProcessing() {
-        return this.status == Status.PROCESSING;
+        return this.status == StatusEnum.PROCESSING;
     }
 
 }

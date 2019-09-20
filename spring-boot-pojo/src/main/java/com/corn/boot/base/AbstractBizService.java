@@ -1,7 +1,7 @@
 package com.corn.boot.base;
 
 import com.corn.boot.annotations.DoTranscation;
-import com.corn.boot.enums.Status;
+import com.corn.boot.enums.StatusEnum;
 import com.corn.boot.error.BizError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,17 +44,17 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
             ie.printStackTrace();
             //参数校验错误(未知)
             logger.error("参数类型异常[订单：{}，msgError：{}]", order, ie.getMessage());
-            result.setStatus(Status.FAIL);
+            result.setStatus(StatusEnum.FAIL);
             result.setMessage("参数类型异常，请核实");
         } catch (BizError bizError) {
             logger.warn("系统业务错误[订单：{}，msgError：{}，errorCode：{}]", order, bizError.getMessage(), bizError.getCode());
-            result.setStatus(Status.FAIL);
+            result.setStatus(StatusEnum.FAIL);
             result.setMessage(bizError.getMessage());
             result.setCode(bizError.getCode());
         } catch (Exception e) {
             //系统未知错误，抛出详细异常信息
             logger.error("系统未知错误[订单：{}，msgError：{}]", order, e.getMessage(), e);
-            result.setStatus(Status.FAIL);
+            result.setStatus(StatusEnum.FAIL);
             result.setMessage("系统繁忙");
         } finally {
 
@@ -92,7 +92,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
      * 设置默认应答
      */
     private void setDefaultResult(R result) {
-        result.setStatus(Status.SUCCESS);
+        result.setStatus(StatusEnum.SUCCESS);
         result.setMessage("执行成功");
     }
 

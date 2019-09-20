@@ -1,6 +1,10 @@
 package com.corn.boot.enums;
 
-public enum Status {
+/**
+ * @author yyc
+ * @apiNote 状态枚举
+ * */
+public enum StatusEnum {
     /**
      * 成功
      */
@@ -32,7 +36,7 @@ public enum Status {
      * @param code    枚举值码。
      * @param message 枚举描述。
      */
-    private Status(String code, String message) {
+    private StatusEnum(String code, String message) {
         this.code = code;
         this.message = message;
     }
@@ -62,8 +66,8 @@ public enum Status {
      * @return 枚举值码对应的枚举值。
      * @throws IllegalArgumentException 如果 code 没有对应的 Status 。
      */
-    public static Status findStatus(String code) {
-        for (Status status : values()) {
+    public static StatusEnum findStatus(String code) {
+        for (StatusEnum status : values()) {
             if (status.code().equals(code)) {
                 return status;
             }

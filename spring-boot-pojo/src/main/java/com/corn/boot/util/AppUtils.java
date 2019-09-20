@@ -28,18 +28,6 @@ public class AppUtils {
     }
 
     /**
-     * 生成用户id
-     */
-    public static String userIdCreate() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("us");
-        for (int i = 0; i < 14; i++) {
-            builder.append(chr[new Random().nextInt(chr.length)]);
-        }
-        return String.valueOf(builder);
-    }
-
-    /**
      * 生成Token
      *
      * @return
