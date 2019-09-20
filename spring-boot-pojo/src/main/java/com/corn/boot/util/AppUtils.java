@@ -27,23 +27,6 @@ public class AppUtils {
         return stringBuffer.toString();
     }
 
-    /**
-     * 生成Token
-     *
-     * @return
-     */
-    public static String makeToken() {
-        String token = (System.currentTimeMillis() + new Random().nextInt(999999999)) + "";
-        try {
-            MessageDigest md = MessageDigest.getInstance("md5");
-            byte md5[] = md.digest(token.getBytes());
-           // BASE64Encoder encoder = new BASE64Encoder();
-            return null;
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            throw new BizError("生成token失败");
-        }
-    }
 
     /**
      * 生成对应id
