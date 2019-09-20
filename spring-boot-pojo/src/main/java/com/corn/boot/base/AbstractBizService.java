@@ -17,6 +17,7 @@ import org.springframework.util.ObjectUtils;
  */
 
 public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes> {
+
     private final Logger logger = LoggerFactory.getLogger(AbstractBizService.class);
 
     @Autowired
@@ -27,12 +28,14 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
         //1.初始化result
         R result = initResult();
         try {
+
             //2.设置默认应答
             setDefaultResult(result);
+
             //3.参数校验
             orderCheck(order);
+
             //4.执行业务逻辑
-            //业务预处理
             if (checkTranscation()) {
                 bailBizInTranscation(order,result);
             } else {
@@ -41,21 +44,28 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
 
 
         } catch (IllegalArgumentException ie) {
-            ie.printStackTrace();
+
             //参数校验错误(未知)
-            logger.error("参数类型异常[订单：{}，msgError：{}]", order, ie.getMessage());
+            logger.error("参数类型异常[入参：{}，msgError：{}]", order, ie.getMessage());
             result.setStatus(StatusEnum.FAIL);
             result.setMessage("参数类型异常，请核实");
+            result.setCode(HttpBase.HTTP_RESPONSE_FAIL_CODE);
+
         } catch (BizError bizError) {
-            logger.warn("系统业务错误[订单：{}，msgError：{}，errorCode：{}]", order, bizError.getMessage(), bizError.getCode());
+
+            logger.warn("系统业务错误[入参：{}，msgError：{}，errorCode：{}]", order, bizError.getMessage(), HttpBase.HTTP_RESPONSE_FAIL_CODE);
             result.setStatus(StatusEnum.FAIL);
             result.setMessage(bizError.getMessage());
-            result.setCode(bizError.getCode());
+            result.setCode(HttpBase.HTTP_RESPONSE_FAIL_CODE);
+
         } catch (Exception e) {
+
             //系统未知错误，抛出详细异常信息
-            logger.error("系统未知错误[订单：{}，msgError：{}]", order, e.getMessage(), e);
+            logger.error("系统未知错误[入参：{}，msgError：{}]", order, e.getMessage());
             result.setStatus(StatusEnum.FAIL);
             result.setMessage("系统繁忙");
+            result.setCode(HttpBase.HTTP_RESPONSE_FAIL_CODE);
+
         } finally {
 
             if (result.isSuccess()) {
@@ -70,7 +80,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
             MDC.clear();
         }
 
-        logger.info("业务[{}]处理结束，返回参数：result={}", result.toString());
+        logger.info("业务[{}]处理结束，返回参数：result={}", bieMemo, result.toString());
 
         return result;
     }
@@ -93,6 +103,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
      */
     private void setDefaultResult(R result) {
         result.setStatus(StatusEnum.SUCCESS);
+        result.setCode(HttpBase.HTTP_RESPONSE_SUCCESS_CODE);
         result.setMessage("执行成功");
     }
 
@@ -113,7 +124,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
      * 带事务的方法执行
      * */
     private void bailBizInTranscation(O order,R result){
-
+        logger.info("------ 开始执行事务方法 -------");
         Biz biz = new Biz(order,result);
         transactionTemplate.execute(biz);
     }

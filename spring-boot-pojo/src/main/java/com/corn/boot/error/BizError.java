@@ -6,7 +6,7 @@ package com.corn.boot.error;
 public class BizError extends RuntimeException {
     private static final long serialVersionUID = 2492449662231853945L;
 
-    private String code;
+    private Integer code;
 
     public BizError() {
         super();
@@ -23,11 +23,6 @@ public class BizError extends RuntimeException {
         super(msg);
     }
 
-    public BizError(String message, String code) {
-        super(message);
-        this.code = code;
-    }
-
     public BizError(String message, Throwable cause) {
         super(message, cause);
     }
@@ -36,11 +31,11 @@ public class BizError extends RuntimeException {
         super(cause);
     }
 
-    public String getCode() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 }
