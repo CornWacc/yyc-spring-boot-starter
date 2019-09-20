@@ -15,7 +15,7 @@ public class JsonResult extends Base {
 
     public static final String FAIL_MSG = "FAIL";
 
-    private Object object;
+    private Object data;
 
     private String msg;
 
@@ -34,7 +34,7 @@ public class JsonResult extends Base {
     public JsonResult(Object object) {
 
         if(BaseRes.class.isAssignableFrom(object.getClass())){
-            this.object = object;
+            this.data = object;
             BaseRes res = (BaseRes) object;
             this.status = res.getStatus().code().toUpperCase();
             this.msg = res.getMessage();
@@ -46,12 +46,12 @@ public class JsonResult extends Base {
     }
 
     public JsonResult(Object object, String msg) {
-        this.object = object;
+        this.data = object;
         this.msg = msg;
     }
 
     public JsonResult(Object object, String msg, int code) {
-        this.object = object;
+        this.data = object;
         this.msg = msg;
         this.code = code;
     }
@@ -66,12 +66,12 @@ public class JsonResult extends Base {
         this.msg = msg;
     }
 
-    public Object getObject() {
-        return object;
+    public Object getData() {
+        return data;
     }
 
-    public void setObject(Object object) {
-        this.object = object;
+    public void setData(Object data) {
+        this.data = data;
     }
 
     public String getMsg() {
