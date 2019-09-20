@@ -31,6 +31,22 @@ public class JsonResult extends Base {
      * */
     private Boolean success;
 
+    public JsonResult(Object o){
+        if(o instanceof BaseRes){
+            BaseRes baseRes = (BaseRes) o;
+            if(checkSuccess(baseRes.getCode(),baseRes)){
+                this.msg = "执行成功";
+                this.success = true;
+                this.code = HttpBase.HTTP_RESPONSE_SUCCESS_CODE;
+            }else{
+                this.msg = baseRes.getMessage();
+                this.success = false;
+                this.code = HttpBase.HTTP_RESPONSE_FAIL_CODE;
+            }
+        }
+        this.data = o;
+    }
+
     public JsonResult(Object o,String msg){
         if(o instanceof BaseRes){
             BaseRes baseRes = (BaseRes) o;
