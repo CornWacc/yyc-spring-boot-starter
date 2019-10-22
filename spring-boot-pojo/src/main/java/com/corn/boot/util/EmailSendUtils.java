@@ -15,7 +15,7 @@ import java.util.Properties;
  * @author yyc
  * @apiNote 邮箱验证
  */
-public class EmailSend {
+public class EmailSendUtils {
     public static void sendEmail(String email) {
         Properties properties = new Properties();
         properties.setProperty("mail.transport.protocol", "smtp");

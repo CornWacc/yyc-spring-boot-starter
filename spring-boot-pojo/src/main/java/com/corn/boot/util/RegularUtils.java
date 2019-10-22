@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  * @author yyc
  * @apiNote 通用正则匹配工具类
  */
-public class Regular {
+public class RegularUtils {
 
     private static final String EMAIL_PATTERN = "^[a-zA-Z_]{0,}[0-9]{1,}@([a-zA-z0-9]{1,}\\.)[a-zA-z]{1,}$";
 
