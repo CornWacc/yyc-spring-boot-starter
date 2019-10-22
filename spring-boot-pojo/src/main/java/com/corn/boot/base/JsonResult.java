@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * @author yyc
  * @apiNote 通用返回json类
  */
-public class JsonResult extends Base {
+public class JsonResult {
 
     private static final Logger log = LoggerFactory.getLogger(JsonResult.class);
 
