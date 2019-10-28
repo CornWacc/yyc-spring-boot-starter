@@ -16,16 +16,6 @@ public class Base implements Serializable {
 
     private static final long serialVersionUID = 2444373807715029452L;
 
-    private String appCode;
-
-    public String getAppCode() {
-        return appCode;
-    }
-
-    public void setAppCode(String appCode) {
-        this.appCode = appCode;
-    }
-
     public int hashCode() {
         return HashCodeBuilder.reflectionHashCode(this);
     }

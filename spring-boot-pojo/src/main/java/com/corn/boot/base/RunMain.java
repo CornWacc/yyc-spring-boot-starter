@@ -31,6 +31,7 @@ public class RunMain {
             long endTime = System.currentTimeMillis();
             log.info("********** 项目启动成功:{},耗时:{},端口号:{},配置:{} **********", System.getProperty("os.name"), endTime - startTime, runner.port(), runner.active());
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("启动错误");
         }
     }
