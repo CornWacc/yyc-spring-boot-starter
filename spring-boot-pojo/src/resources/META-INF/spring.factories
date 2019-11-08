@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.corn.boot.configuration.DataSourceAutoConfiguration,\
+com.corn.boot.configuration.DataSourceProperties
