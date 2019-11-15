@@ -1,6 +1,8 @@
 package com.corn.boot.base;
 
 
+import org.springframework.util.ObjectUtils;
+
 /**
  * @author yyc
  * @apiNote 分页入参数据实体
@@ -29,6 +31,9 @@ public class PageParamInfo extends Base {
     }
 
     public Integer getPageNum() {
+        if(ObjectUtils.isEmpty(this.pageNum) || this.pageNum.equals(0)){
+            return 1;
+        }
         return pageNum;
     }
 
@@ -37,6 +42,9 @@ public class PageParamInfo extends Base {
     }
 
     public Integer getPageSize() {
+        if(ObjectUtils.isEmpty(this.pageSize) || this.pageSize.equals(0)){
+            return 10;
+        }
         return pageSize;
     }
 

@@ -18,7 +18,7 @@ import org.springframework.util.ObjectUtils;
 
 public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes> {
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     protected TransactionTemplate transactionTemplate;
