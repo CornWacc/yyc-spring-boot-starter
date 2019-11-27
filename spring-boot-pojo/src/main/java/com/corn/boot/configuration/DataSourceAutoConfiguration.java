@@ -18,9 +18,12 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 
+/**
+ * @author yyc
+ * @apiNote 数据源设置自动配置
+ * */
 @Configuration
-//@EnableConfigurationProperties({DataSourceProperties.class})
-@AutoConfigureAfter(DataSourceProperties.class)
+@AutoConfigureAfter(DataSourcePropertiesAutoConfiguration.class)
 public class DataSourceAutoConfiguration {
 
     private static final Logger log = LoggerFactory.getLogger(DataSourceAutoConfiguration.class);

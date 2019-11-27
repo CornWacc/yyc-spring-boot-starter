@@ -10,9 +10,12 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
-//@ConfigurationProperties(prefix = "app.ds")
+/**
+ * @author yyc
+ * @apiNote 数据源基础配置自动配置
+ * */
 @Configuration
-public class DataSourceProperties {
+public class DataSourcePropertiesAutoConfiguration {
 
     @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
