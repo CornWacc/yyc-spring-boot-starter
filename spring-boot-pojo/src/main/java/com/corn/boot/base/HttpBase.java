@@ -1,5 +1,7 @@
 package com.corn.boot.base;
 
+import com.corn.boot.base.pojobase.Base;
+
 /**
  * @author yyc
  * @apiNote Http响应
@@ -17,5 +19,17 @@ public class HttpBase extends Base {
 
     /* 业务处理返回默认应答 */
     public static final String HTTP_RESPONSE_ERROR_CODE = "系统繁忙！请联系管理员!";
+
+    /* 预请求 */
+    public static final String HTTP_REQUEST_METHOD_OPTION = "OPTIONS";
+
+    /* GET请求 */
+    public static final String HTTP_REQUEST_METHOD_GET = "GET";
+
+    /* POST请求 */
+    public static final String HTTP_REQUEST_METHOD_POST = "POST";
+
+    /* 默认字符集 */
+    public static final String HTTP_CHARSET = "UTF-8";
 
 }

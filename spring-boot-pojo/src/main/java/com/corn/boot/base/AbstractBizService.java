@@ -1,6 +1,8 @@
 package com.corn.boot.base;
 
 import com.corn.boot.annotations.DoTranscation;
+import com.corn.boot.base.pojobase.BaseOrder;
+import com.corn.boot.base.pojobase.BaseRes;
 import com.corn.boot.enums.StatusEnum;
 import com.corn.boot.error.BizError;
 import org.slf4j.Logger;

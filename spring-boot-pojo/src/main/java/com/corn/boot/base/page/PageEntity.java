@@ -1,6 +1,7 @@
-package com.corn.boot.base;
+package com.corn.boot.base.page;
 
 
+import com.corn.boot.base.pojobase.Base;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  * @author yyc
  * @apiNote 可支持PageHelper的自封装分页实体
  * */
-public class  PageEntity<T> extends Base  {
+public class  PageEntity<T> extends Base {
 
     /**
      * 分页参数

@@ -1,4 +1,4 @@
-package com.corn.boot.base;
+package com.corn.boot.base.pojobase;
 
 import com.corn.boot.error.BizError;
 import org.apache.commons.lang3.StringUtils;

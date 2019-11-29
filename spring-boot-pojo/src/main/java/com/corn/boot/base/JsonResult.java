@@ -1,5 +1,6 @@
 package com.corn.boot.base;
 
+import com.corn.boot.base.pojobase.BaseRes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

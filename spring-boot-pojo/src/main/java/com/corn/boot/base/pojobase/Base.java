@@ -1,4 +1,4 @@
-package com.corn.boot.base;
+package com.corn.boot.base.pojobase;
 
 
 import org.apache.commons.lang3.builder.EqualsBuilder;

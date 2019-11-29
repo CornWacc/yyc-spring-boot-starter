@@ -1,6 +1,7 @@
-package com.corn.boot.base;
+package com.corn.boot.base.page;
 
 
+import com.corn.boot.base.pojobase.Base;
 import org.springframework.util.ObjectUtils;
 
 /**
