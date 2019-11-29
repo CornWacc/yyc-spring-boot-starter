@@ -23,7 +23,7 @@ import java.sql.SQLException;
  * @apiNote 数据源设置自动配置
  * */
 @Configuration
-@AutoConfigureAfter(DataSourcePropertiesAutoConfiguration.class)
+@AutoConfigureAfter({DataSourcePropertiesAutoConfiguration.class})
 public class DataSourceAutoConfiguration {
 
     private static final Logger log = LoggerFactory.getLogger(DataSourceAutoConfiguration.class);
@@ -36,6 +36,10 @@ public class DataSourceAutoConfiguration {
 
     @Bean
     public SqlSessionFactoryBean createSqlSessiongFactoryBean(){
+
+        if(ObjectUtils.isEmpty(dataSource)){
+            log.info("当前数据源为空:{}",dataSource);
+        }
 
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         try {

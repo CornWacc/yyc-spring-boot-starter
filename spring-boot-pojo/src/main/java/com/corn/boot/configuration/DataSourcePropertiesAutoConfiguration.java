@@ -30,8 +30,8 @@ public class DataSourcePropertiesAutoConfiguration {
     private String password;
 
 
-    @Bean(name = "dataSource")
-    public DataSource createDruidDataSource() {
+    @Bean(name = "druidDataSource")
+    public DruidDataSource createDruidDataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         if (StringUtils.isBlank(driverClassName)) {
             throw new BizError("sql驱动不能为空");
