@@ -3,6 +3,7 @@ package com.corn.boot.base;
 import com.corn.boot.base.pojobase.BaseRes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import springfox.documentation.spring.web.json.Json;
 
 /**
  * @author yyc
@@ -66,8 +67,14 @@ public class JsonResult {
 
     public JsonResult(String msg,Boolean success){
         this.msg = msg;
-        this.success = true;
-        this.code = HttpBase.HTTP_RESPONSE_SUCCESS_CODE;
+        this.success = success;
+        this.code = success ? HttpBase.HTTP_RESPONSE_SUCCESS_CODE : HttpBase.HTTP_RESPONSE_FAIL_CODE;
+    }
+
+    public JsonResult(String msg,Boolean success,Integer code){
+        this.msg = msg;
+        this.success = success;
+        this.code = code;
     }
 
     private boolean checkSuccess(Integer code,BaseRes res){
