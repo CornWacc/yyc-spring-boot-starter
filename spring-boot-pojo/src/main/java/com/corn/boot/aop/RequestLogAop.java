@@ -1,6 +1,7 @@
 package com.corn.boot.aop;
 
 
+import com.alibaba.fastjson.JSON;
 import com.corn.boot.annotations.RequestLog;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -23,6 +24,6 @@ public class RequestLogAop {
     public void cut(JoinPoint joinPoint, RequestLog requestLog){
 
         Object[] objects = joinPoint.getArgs();
-        log.info("客户端请求方法{},入参:{}",joinPoint.getSignature().getName(),requestLog.value());
+        log.info("客户端请求方法{},入参:{}",joinPoint.getSignature().getName(), JSON.toJSON(objects));
     }
 }
