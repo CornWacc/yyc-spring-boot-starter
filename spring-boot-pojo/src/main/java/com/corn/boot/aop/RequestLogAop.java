@@ -24,6 +24,6 @@ public class RequestLogAop {
     public void cut(JoinPoint joinPoint, RequestLog requestLog){
 
         Object[] objects = joinPoint.getArgs();
-        log.info("客户端请求方法{},入参:{}",joinPoint.getSignature().getName(), JSON.toJSON(objects));
+        log.info("************ 客户端请求方法[{}],入参:[{}]",joinPoint.getSignature().getName(), JSON.toJSON(objects));
     }
 }
