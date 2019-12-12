@@ -26,7 +26,7 @@ public class CUDOrder extends BaseOrder {
         this.cudType = cudType;
     }
 
-    protected void checkCUDParams() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    public void checkCUDParams() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         Class aClass = this.getClass();
         Field[] fields = aClass.getDeclaredFields();
 
@@ -35,7 +35,11 @@ public class CUDOrder extends BaseOrder {
             if (!ObjectUtils.isEmpty(cudParamsCheck)) {
                 List<CudTypeEnum> arrayList = Arrays.asList(cudParamsCheck.cudTypes());
                 if (arrayList.contains(this.cudType)) {
-                    paramsCheck(field, aClass, cudParamsCheck.errorMsg());
+                    try{
+                        paramsCheck(field, aClass, cudParamsCheck.errorMsg());
+                    }catch (Exception e){
+                        throw new BizError("参数校验失败!");
+                    }
                 }
             }
         }
