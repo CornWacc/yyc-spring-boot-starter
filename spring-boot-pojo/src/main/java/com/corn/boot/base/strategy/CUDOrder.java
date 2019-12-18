@@ -26,7 +26,7 @@ public class CUDOrder extends BaseOrder {
         this.cudType = cudType;
     }
 
-    public void checkCUDParams() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    public void checkCUDParams() {
         Class aClass = this.getClass();
         Field[] fields = aClass.getDeclaredFields();
 
