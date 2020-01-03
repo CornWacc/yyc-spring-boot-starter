@@ -75,15 +75,12 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
             } else if (result.isProcessing()) {
                 logger.info("[{}]处理中，结果：{}", bieMemo, result.toString());
             } else {
-                logger.info("[{}]处理失败，原因：[{}]，结果：{}", bieMemo, result.getMessage(), result.toString());
+                logger.info("[{}]处理失败，原因：[{}]，结果：{}", bieMemo, result.getMessage(), result);
             }
 
             //打印摘要日志
             MDC.clear();
         }
-
-        logger.info("业务[{}]处理结束，返回参数：result={}", bieMemo, result.toString());
-
         return result;
     }
 
