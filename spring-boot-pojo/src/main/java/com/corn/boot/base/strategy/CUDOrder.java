@@ -27,6 +27,11 @@ public class CUDOrder extends BaseOrder {
     }
 
     public void checkCUDParams() {
+
+        if(ObjectUtils.isEmpty(cudType)){
+            throw new BizError("cudType不能为空!");
+        }
+
         Class aClass = this.getClass();
         Field[] fields = aClass.getDeclaredFields();
 
