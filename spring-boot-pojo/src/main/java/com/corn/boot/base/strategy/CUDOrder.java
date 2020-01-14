@@ -28,7 +28,7 @@ public class CUDOrder extends BaseOrder {
 
     public void checkCUDParams() {
 
-        if(ObjectUtils.isEmpty(cudType)){
+        if (ObjectUtils.isEmpty(cudType)) {
             throw new BizError("cudType不能为空!");
         }
 
@@ -40,10 +40,12 @@ public class CUDOrder extends BaseOrder {
             if (!ObjectUtils.isEmpty(cudParamsCheck)) {
                 List<CudTypeEnum> arrayList = Arrays.asList(cudParamsCheck.cudTypes());
                 if (arrayList.contains(this.cudType)) {
-                    try{
+                    try {
                         paramsCheck(field, aClass, cudParamsCheck.errorMsg());
-                    }catch (Exception e){
-                        throw new BizError("参数校验失败!");
+                    } catch (BizError e) {
+                        throw new BizError(e.getMessage());
+                    } catch (Exception e) {
+                        throw new BizError("参数校验异常!" + e.getMessage());
                     }
                 }
             }
@@ -72,49 +74,8 @@ public class CUDOrder extends BaseOrder {
         String firstChar = String.valueOf(paramName.charAt(0)).toUpperCase();
         String subString = paramName.substring(1);
         firstChar += subString;
-        System.out.println(METHOD_PREFIX+firstChar);
-        return METHOD_PREFIX+firstChar;
+        System.out.println(METHOD_PREFIX + firstChar);
+        return METHOD_PREFIX + firstChar;
     }
 }
-
-class Test extends CUDOrder {
-
-    private String name;
-
-    private String pwd;
-
-    @CudParamsCheck(cudTypes = {CudTypeEnum.CREATE, CudTypeEnum.DELETE}, errorMsg = "名称不能为空")
-    private List list;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPwd() {
-        return pwd;
-    }
-
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
-    }
-
-    public List getList() {
-        return list;
-    }
-
-    public void setList(List list) {
-        this.list = list;
-    }
-
-    public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        Test test = new Test();
-        test.setCudType(CudTypeEnum.CREATE);
-        test.checkCUDParams();
-    }
-}
-
 
