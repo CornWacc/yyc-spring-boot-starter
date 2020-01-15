@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -25,7 +26,12 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
     @Autowired
     protected TransactionTemplate transactionTemplate;
 
+    @Value("${debug.log}")
+    private String debugLog;
+
     public final R execute(String bieMemo, O order) {
+
+        boolean isShowDebugLog = debugLog.equals("Y") ? true : false;
         logger.info("收到业务[{}]处理请求，请求参数：{}", bieMemo, order);
         //1.初始化result
         R result = initResult();
@@ -52,13 +58,18 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
             result.setStatus(StatusEnum.FAIL);
             result.setMessage("参数类型异常，请核实");
             result.setCode(HttpBase.HTTP_RESPONSE_FAIL_CODE);
-
+            if(isShowDebugLog){
+                ie.printStackTrace();;
+            }
         } catch (BizError bizError) {
 
             logger.warn("系统业务错误[入参：{}，msgError：{}，errorCode：{}]", order, bizError.getMessage(), HttpBase.HTTP_RESPONSE_FAIL_CODE);
             result.setStatus(StatusEnum.FAIL);
             result.setMessage(bizError.getMessage());
             result.setCode(HttpBase.HTTP_RESPONSE_FAIL_CODE);
+            if(isShowDebugLog){
+                bizError.printStackTrace();;
+            }
 
         } catch (Exception e) {
 
@@ -67,6 +78,9 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseRes>
             result.setStatus(StatusEnum.FAIL);
             result.setMessage("系统繁忙");
             result.setCode(HttpBase.HTTP_RESPONSE_FAIL_CODE);
+            if(isShowDebugLog){
+                e.printStackTrace();;
+            }
 
         } finally {
 
